@@ -1,5 +1,43 @@
 # Helios field parts
 
+<!-- project-guide:start -->
+## Project guide
+
+[Project architecture](PROJECT_ARCHITECTURE.md) · [Interview questions and answers](INTERVIEW_QA.md)
+
+Use the architecture document for the component diagram, implementation boundaries, and verification entry points. The interview guide includes source-backed answers and project walkthroughs.
+
+### Implementation map
+
+| Component | Responsibility |
+| --- | --- |
+| [`src/parts/recommend.py`](src/parts/recommend.py) | Functions: `recommend` |
+| [`src/parts/eval.py`](src/parts/eval.py) | Functions: `run` |
+| [`src/parts/policy.py`](src/parts/policy.py) | Functions: `render` |
+| [`src/parts/ingest.py`](src/parts/ingest.py) | Functions: `load_assets`, `load_faults`, `load_bins`, `load_cases` |
+| [`requirements.txt`](requirements.txt) | Implementation or supporting configuration |
+| [`src/parts/__init__.py`](src/parts/__init__.py) | Implementation or supporting configuration |
+| [`src/parts/__main__.py`](src/parts/__main__.py) | Functions: `main` |
+| [`Dockerfile`](Dockerfile) | Container build/service configuration |
+| [`tests/test_policy.py`](tests/test_policy.py) | Executable checks and regression examples |
+| [`.github/workflows/ci.yml`](.github/workflows/ci.yml) | GitHub Actions job definitions |
+| [`README.md`](README.md) | Project explanations or operating notes |
+| [`docs/01-discovery.md`](docs/01-discovery.md) | Project explanations or operating notes |
+| [`docs/02-security.md`](docs/02-security.md) | Project explanations or operating notes |
+
+### Local setup and verification
+
+From the repository root (the commands follow the checked-in manifests):
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python -m pytest -q
+```
+
+<!-- project-guide:end -->
+
 Simulated forward deployed engagement for Helios Equipment. Depot techs at a site with no reliable uplink were guessing spare parts from a PDF. The depot lead will not let the tool create a purchase order, and the catalog cannot call a vendor API.
 
 ## What the tech gets
