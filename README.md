@@ -67,3 +67,11 @@ python -m parts AST-7 E42
 - [Readout](docs/03-readout.md)
 
 The pilot does not claim less downtime. It claims the recommended bin has quantity, and an unknown fault does not invent a SKU.
+
+## Documentation checks
+
+Project architecture, interview guides, and local source links are checked automatically on pushes and pull requests. Run the same check locally:
+
+```bash
+python3 .github/scripts/validate_project_docs.py
+```
